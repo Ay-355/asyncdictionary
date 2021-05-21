@@ -1,6 +1,6 @@
 import aiohttp
-from .errors import APIError
 
+from .errors import APIError
 
 
 class HTTPClient:

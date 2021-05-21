@@ -1,7 +1,9 @@
-from .definition import Definition
-from .http import HTTPClient
 import aiohttp
+
+from .definition import Definition
 from .errors import APIError, WordNotFound
+from .http import HTTPClient
+
 
 class Client:
     
@@ -12,12 +14,14 @@ class Client:
         self.url = "https://api.dictionaryapi.dev/api/v2/entries/en_US/"
 
 
+    def get_url(self, word):
+        return self.url + word
 
 
     async def get_definitions(self, word: str):
-        main_url = self.url + word
+        url = self.get_url(word)
         def_list = []
-        response = await self._http.get(main_url)
+        response = await self._http.get(url)
         if isinstance(response, dict):
             raise WordNotFound("Sorry, we couldn't find that word for you")
         for definition in response[0]['meanings']:
