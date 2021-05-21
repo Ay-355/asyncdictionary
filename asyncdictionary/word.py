@@ -1,4 +1,4 @@
-from .definition import Meaning
+from .meaning import Meaning
 from .phonetic import Phonetic
 
 
@@ -10,5 +10,5 @@ class Word:
 
     def __init__(self, data):
         self.word = data[0].get("word")
-        self.phonetics = [Phonetic(p) for p in data[0]["phonetics"]]
+        self.phonetics = [Phonetic(p) for p in data[0]['phonetics']]
         self.definitions = [Meaning(d) for d in data[0]['meanings']]

@@ -7,7 +7,7 @@ from .http import HTTPClient
 
 class Client:
     
-    __slots__ = {"session"}
+    __slots__ = ("session")
     
     def __init__(self, session: aiohttp.ClientSession = None):
         self._http = HTTPClient(session)
