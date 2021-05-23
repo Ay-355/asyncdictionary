@@ -7,4 +7,4 @@ class Meaning:
 
     def __init__(self, data):
         self.part_of_speech = data.get("partOfSpeech")
-        self.definitions = [Definition(d) for d in data.get("defintions")]
+        self.definitions = [Definition(d) for d in data.get("definitions")]

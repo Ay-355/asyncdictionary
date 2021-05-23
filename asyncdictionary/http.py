@@ -1,3 +1,5 @@
+from typing import Optional
+
 import aiohttp
 
 from .errors import APIError
@@ -5,10 +7,10 @@ from .errors import APIError
 
 class HTTPClient:
     
-    __slots__ = ("session")
+    # __slots__ = ("session")
     
-    def __init__(self, session: aiohttp.ClientSession = None):
-        self.session = aiohttp.ClientSession() if session is None else session
+    def __init__(self, *, session: Optional[aiohttp.ClientSession] = None):
+        self.session = session or aiohttp.ClientSession()
 
 
     async def get(self, url, **kwargs):
@@ -26,4 +28,3 @@ class HTTPClient:
 
     async def close(self):
         self.session.close()
-        self.session = None
