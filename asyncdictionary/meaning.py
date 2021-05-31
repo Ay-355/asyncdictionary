@@ -1,5 +1,5 @@
 
-from asyncdictionary.definition import Definition
+from .definition import Definition
 
 
 class Meaning:
