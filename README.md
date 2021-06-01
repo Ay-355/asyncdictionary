@@ -1,13 +1,13 @@
-# asyncdictionary.py
+# asyncdictionary
 
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
 
 
 **An asynchronous Python wrapper for https://dictionaryapi.dev/**
 
-**You can find the API's repository [here](https://github.com/meetDeveloper/freeDictionaryAPI)**
+You can find the API's repository [here](https://github.com/meetDeveloper/freeDictionaryAPI)
 
-**NOTE: Currently I have only implemented fetching words from English, not other languages. Support for different languages coming soon.**
+### **NOTE: Currently I have only implemented fetching words from English, not other languages. This is because the actual API's implementation of languages other than english is different. Support for different languages coming soon though.**
 
 ___
 ## Requirements
@@ -23,7 +23,7 @@ That's it!
 ___
 Currently through pip.
 
-- `pip install asyncdictionary.py`
+- `pip install asyncdictionary`
 
 Or through git, but why would you want to do that.
 - `pip install git+https://github.com/Ay-355/asyncdictionary`
@@ -37,3 +37,5 @@ ___
 **Any issues directly with the API should be reported at the [API's repository page](https://github.com/meetDeveloper/freeDictionaryAPI).**
 
 If there is anything wrong with this package, feel free to open up an issue.
+
+Hope this is useful!
