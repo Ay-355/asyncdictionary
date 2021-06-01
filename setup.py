@@ -40,8 +40,15 @@ setup(
     ],
     project_urls={
         "Documentation": "https://github.com/Ay-355/asyncdictionary/blob/master/Documentation.md",
+        "Issue Tracker": "https://github.com/Ay-355/asyncdictionary/issues"
     },
     classifiers=[
-        'License :: OSI Approved :: MIT License',
+        "License :: OSI Approved :: MIT License",
+        "Intended Audience :: Developers",
+        "Natural Language :: English",
+		"Programming Language :: Python :: 3.6",
+		"Programming Language :: Python :: 3.7",
+		"Programming Language :: Python :: 3.8",
+		"Programming Language :: Python :: 3.9",
     ]
 )

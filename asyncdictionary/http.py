@@ -7,7 +7,7 @@ from .errors import APIError
 
 class HTTPClient:
 
-    # __slots__ = ("session")
+    __slots__ = ("session")
 
     def __init__(self, *, session: Optional[aiohttp.ClientSession] = None) -> None:
         self.session = session or aiohttp.ClientSession()
