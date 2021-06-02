@@ -29,7 +29,7 @@ Or if you already have a `ClientSession` that you want to use instead:
 import asyncdictionary
 import aiohttp
 
-# I'm making the session like this for the example, however you should not create a session just for this `Client` because the wrapper handles it for you.
+# I'm making the session like this for the example, however you should not create a session just for this ``Client`` because the wrapper handles it for you.
 client_session = aiohttp.ClientSession()
 # then pass into the session kwarg and create an instance of ``Client``
 dictionary = asyncdictionary.Client(session=client_session)
@@ -172,7 +172,7 @@ dictionary = asyncdictionary.Client()
 
 word = dictionary.get_word("hello")
 print(word.word) # prints `hello`
-print(word.phonetics[0].text) # prints `/həˈloʊ/`; alternatively you could loop over them and print each of them
+print(word.phonetics[0].text) # prints the visual representation (I cannot show that here because MD does not render it)
 print(word.definitions[0].part_of_speech) # prints `exclamation`
 print(word.definitions[0].definition) # prints `Used as a greeting or to begin a phone conversation.`
 ```
