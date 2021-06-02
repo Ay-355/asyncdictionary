@@ -2,12 +2,11 @@ from typing import Optional
 
 import aiohttp
 
-from .definition import Definition
 from .errors import WordNotFound
 from .http import HTTPClient
 from .meaning import Meaning
 from .phonetic import Phonetic
-from. word import Word
+from .word import Word
 
 
 class Client:
