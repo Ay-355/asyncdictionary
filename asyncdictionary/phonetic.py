@@ -1,4 +1,6 @@
 class Phonetic:
+    """Contains text and audio information related to the phonetics of a word"""
+
     __slots__ = ("text", "audio")
 
     def __init__(self, data):

@@ -1,4 +1,5 @@
 class Definition:
+    """A class containing definition related information."""
     __slots__ = ("definition", "example", "synonyms")
 
     def __init__(self, data):
