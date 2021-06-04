@@ -36,10 +36,8 @@ class Client:
         WordNotFound
             If the word was not found by the API
         """
-        response = await self._http.get("https://api.dictionaryapi.dev/api/v2/entries/en_US/" + word)
-        if isinstance(response, dict):
-            raise WordNotFound("Sorry pal, we couldn't find definitions for the word you were looking for.")
-        return response
+        return await self._http.get("https://api.dictionaryapi.dev/api/v2/entries/en_US/" + word)
+
 
 
     async def get_word(self, word: str) -> Word:

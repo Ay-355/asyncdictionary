@@ -2,7 +2,7 @@ from typing import Any, Optional
 
 import aiohttp
 
-from .errors import APIError
+from .errors import APIError, WordNotFound
 
 
 class HTTPClient:
@@ -15,6 +15,8 @@ class HTTPClient:
 
     async def get(self, url: str, **kwargs) -> Any:
         async with self.session.get(url, **kwargs) as res:
+            if res.status == 404:
+                raise WordNotFound("Sorry pal, we couldn't find definitions for the word you were looking for.")
             if not 300 >= res.status >= 200:
                 raise APIError(f"{res.status}: Request was fine but there was an error")
 

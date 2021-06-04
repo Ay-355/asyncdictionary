@@ -6,7 +6,7 @@ class Word:
     """Represents a ``word``
     This is essentially all the information that a request directly to the API will give you
     """
-    __slots__ = {"word", "phonetics", "definition"}
+    __slots__ = ("word", "phonetics", "definitions")
 
     def __init__(self, data):
         self.word = data[0].get("word")

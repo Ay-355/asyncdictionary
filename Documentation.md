@@ -163,22 +163,25 @@ A [list] of words that are synonyms to the word or `None` if there were none giv
 An example of how to use the wrapper.
 
 ```py
+import asyncio
 import asyncdictionary
 
 # create an instance of the client
 dictionary = asyncdictionary.Client()
 
 # now we want a word
+async def get_word_information(word):
+    word = await dictionary.get_word(word)
+    print(word.word)
+    print(word.phonetics[0].text)
+    print(word.definitions[0].part_of_speech)
+    print(word.definitions[0].definition)
 
-word = dictionary.get_word("hello")
-print(word.word) # prints `hello`
-print(word.phonetics[0].text) # prints the visual representation (I cannot show that here because MD does not render it)
-print(word.definitions[0].part_of_speech) # prints `exclamation`
-print(word.definitions[0].definition) # prints `Used as a greeting or to begin a phone conversation.`
+asyncio.get_event_loop().run_until_complete(get_hello_definitions("hello"))
 ```
 
-If you have any more questions or issues, open an issue on this and I should be able to help or message me on discord @Ay355#0905
 
+If you have any more questions or issues, open an issue on this and I should be able to help or message me on discord @Ay355#0905
 
 
 
