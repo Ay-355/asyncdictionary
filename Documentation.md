@@ -1,5 +1,5 @@
 # Documentation
-An asynchronous wrapper for the https://dictionaryapi.dev API.
+An asynchronous wrapper for freeDictionaryAPI.
 
 **IMPORTANT: This is not my API. This is merely a wrapper. Any issues with the API should be reported at the [API's repository](https://github.com/meetDeveloper/freeDictionaryAPI).**
 
@@ -14,28 +14,13 @@ First install the package using either:
 ---
 ### Then you have to initiate an instance of the client
 
-If you already have an [aiohttp.ClientSession](https://docs.aiohttp.org/en/stable/client_reference.html?aiohttp.ClientSession), you can pass that into the `Client`, otherwise it will create one for you.
 ```py
 import asyncdictionary
-# create an instance of ``Client``
+# create an instance of `Client`
 dictionary = asyncdictionary.Client()
 ```
+> If you have a [ClientSession], you may pass that in as a kwarg instead.
 
-Or if you already have a `ClientSession` that you want to use instead:
-
-> **NOTE:** Only do this if you have a `ClientSession` already made for other things, don't create one just for this `Client`.
-
-```py
-import asyncdictionary
-import aiohttp
-
-# I'm making the session like this for the example, however you should not create a session just for this ``Client`` because the wrapper handles it for you.
-client_session = aiohttp.ClientSession()
-# then pass into the session kwarg and create an instance of ``Client``
-dictionary = asyncdictionary.Client(session=client_session)
-```
-
----
 # Usage
 ---
 
@@ -95,7 +80,7 @@ Closes the Client.
 
 Explains what exactly the methods return
 
-**NOTE** Some of the attributes might return `None` if none were given by the API.
+> **NOTE:** Some of the attributes might return `None` if nothing was given by the API.
 
 ## Word
 ---
@@ -108,7 +93,7 @@ The word inputted
 
 A [list] of [Phonetic] objects the word has.
 
-### Word.definitions
+### Word.meanings
 
 A [list] of [Meaning] objects.
 
@@ -128,7 +113,7 @@ A link to the audio speech of the word.
 
 ## Meaning
 ---
-The object returned from `Client.get_meanings` and `Word.definitions`
+The object returned from `Client.get_meanings` and `Word.meanings`
 
 ### Meaning.part_of_speech
 
@@ -155,39 +140,15 @@ An example of how the word is used.
 ### Definition.synonyms
 A [list] of words that are synonyms to the word or `None` if there were none given.
 
-
 ---
-
-
-# Examples
-An example of how to use the wrapper.
-
-```py
-import asyncio
-import asyncdictionary
-
-# create an instance of the client
-dictionary = asyncdictionary.Client()
-
-# now we want a word
-async def get_word_information(word):
-    word = await dictionary.get_word(word)
-    print(word.word)
-    print(word.phonetics[0].text)
-    print(word.definitions[0].part_of_speech)
-    print(word.definitions[0].definition)
-
-asyncio.get_event_loop().run_until_complete(get_hello_definitions("hello"))
-```
-
-
-If you have any more questions or issues, open an issue on this and I should be able to help or message me on discord @Ay355#0905
 
 
 
 [str]: https://docs.python.org/3/library/stdtypes.html#str
 
 [list]: https://docs.python.org/3/library/stdtypes.html#list
+
+[ClientSession]: https://docs.aiohttp.org/en/stable/client_reference.html?aiohttp.ClientSession
 
 [Word]: Documentation.md#word
 
