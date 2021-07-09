@@ -14,12 +14,12 @@ class HTTPClient:
 
 
     async def get(self, url: str, **kwargs) -> Any:
-        async with self.session.get(url, **kwargs) as res:
+        async with self.session.get(url, timeout=aiohttp.ClientTimeout(60), **kwargs) as res:
             if not 300 >= res.status >= 200:
                 if res.status == 404:
                     raise WordNotFound("Sorry pal, we couldn't find definitions for the word you were looking for.")
                 else:
-                    raise APIError(f"{res.status}: Request was fine but there was an error")
+                    raise APIError(res.status, await res.text())
 
             try:
                 data = await res.json()
@@ -31,4 +31,4 @@ class HTTPClient:
 
     async def close(self) -> None:
         if self.session:
-            self.session.close()
+            await self.session.close()
