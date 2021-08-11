@@ -32,4 +32,4 @@ jobs:
           pip install .
 
       - name: Try import
-        run: python -m 'import asyncdictionary'
+        run: python -c 'import asyncdictionary'
