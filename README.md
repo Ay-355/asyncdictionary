@@ -3,8 +3,9 @@
 <h1><b>asyncdictionary</b></h1>
 
 
-[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
-[![PyPI version](https://badge.fury.io/py/asyncdictionary.svg)](https://badge.fury.io/py/asyncdictionary)
+[![MIT License](https://img.shields.io/pypi/l/asyncdictionary.svg)](https://spdx.org/licenses/MIT.html)
+[![PyPI version](https://badge.fury.io/py/asyncdictionary.svg)](https://pypi.python.org/pypi/asyncdictionary)
+[![PyPi Downloads](http://pepy.tech/badge/asyncdictionary)](http://pepy.tech/project/asyncdictionary)
 
 <h3>An asynchronous Python wrapper for https://dictionaryapi.dev/</h3>
 
@@ -17,17 +18,18 @@ ___
 
 ___
 ## Requirements
+
 - Python 3.6+
 - aiohttp
 
 ## Features
+
 - Asynchronous
 - Typed
-- Full API coverage
-- Organized Responses
+- Easy to use
 
 ## Installation
-___
+
 Available through PyPi (pip)
 
 ```bash
@@ -38,24 +40,22 @@ Or through git.
 ```bash
 $ pip install git+https://github.com/Ay-355/asyncdictionary
 ```
-> Note: if these don't work then try using prefixing them with either `py -m` or `python -m` 
+> You might have to do `python3 -m pip`
 
 ## Documentation
-___
 
-As this isn't that big of a lib, the docs are a simple markdown file [located here](Documentation.md).
+You can find a markdown file [here](Documentation.md).
 
 ## Issues
-___
+
 **Any issues directly with the API should be reported at the [API's repository page](https://github.com/meetDeveloper/freeDictionaryAPI/issues).**
 
 If there is anything wrong with this package, feel free to open up an issue and explain what happened.
 
 ## Examples
-___
 
 An example to print out some information about a word
-```py
+```python3
 import asyncdictionary
 import asyncio
 
@@ -75,7 +75,7 @@ asyncio.run(word_info("hello"))
 ```
 
 ## Links
-___
+
  - [Documentation](Documentation.md)
  - [PyPi](https://pypi.org/project/asyncdictionary/)
  - [freeDictionaryAPI repository](https://github.com/meetDeveloper/freeDictionaryAPI)
@@ -83,17 +83,5 @@ ___
 
 
 ## License
-___
 
 [MIT](https://choosealicense.com/licenses/mit/)
-
-
-## Todo
-___
-- Add dunder methods (`__str__` & `__repr__`) to all dataclasses.
-- Use less dataclasses to make it simpler for end user.
-
-- Add support for non english languages.
-    - Might require rewrite of classes to support missing attributes.
-
-- Add some more examples, preferably one in a discord bot.
