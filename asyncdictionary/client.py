@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, List
 
 import aiohttp
 
@@ -18,7 +18,7 @@ class Client:
         self._http = HTTPClient(session=_session)
 
 
-    async def get_response(self, word: str) -> list:
+    async def get_response(self, word: str) -> List:
         """A helper method to get the response of the API
 
         Parameters
@@ -57,7 +57,7 @@ class Client:
         return Word(response)
 
 
-    async def get_meanings(self, word: str) -> list[Meaning]:
+    async def get_meanings(self, word: str) -> List[Meaning]:
         """A method to get just the definitions of a word
 
         Parameters
@@ -74,7 +74,7 @@ class Client:
         return [Meaning(m) for m in response[0]['meanings']]
 
 
-    async def get_phonetics(self, word: str) -> list[Phonetic]:
+    async def get_phonetics(self, word: str) -> List[Phonetic]:
         """A method to get pronunciation related things of a word
 
         Parameters
@@ -91,7 +91,7 @@ class Client:
         return [Phonetic(p) for p in response[0]["phonetics"]]
 
 
-    async def get_pronunciations(self, word: str) -> list[Phonetic]:
+    async def get_pronunciations(self, word: str) -> List[Phonetic]:
         """Same thing as ``Client.get_phonetics``"""
         await self.get_phonetics(word)
 
