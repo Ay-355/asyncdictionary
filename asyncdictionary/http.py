@@ -7,11 +7,10 @@ from .errors import APIError, WordNotFound
 
 class HTTPClient:
 
-    __slots__ = ("session")
+    __slots__ = "session"
 
     def __init__(self, *, session: Optional[aiohttp.ClientSession] = None) -> None:
         self.session = session or aiohttp.ClientSession()
-
 
     async def get(self, url: str, **kwargs) -> Any:
         async with self.session.get(url, timeout=aiohttp.ClientTimeout(60), **kwargs) as res:
@@ -27,7 +26,6 @@ class HTTPClient:
                 data = await res.read()
 
         return data
-
 
     async def close(self) -> None:
         if self.session:

@@ -4,6 +4,7 @@ class WordNotFound(Exception):
 
 class APIError(Exception):
     """Broad Exception raised when the API did not return a good response"""
+
     __slots__ = ("status_code", "error_message")
 
     def __init__(self, code: int, error_message: str):
